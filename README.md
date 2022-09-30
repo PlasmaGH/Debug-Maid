@@ -8,7 +8,7 @@ Displays stats about the current server and client.
 **Recommended to require module on both client and server.**
 
 ```
-require(game:GetService("ReplicatedStorage"):WaitForChild("DebugMaid");
+require(game:GetService("ReplicatedStorage"):WaitForChild("DebugMaid"));
 ```
 
 > **Ensure HTTPs Service is Enabled.**

@@ -34,6 +34,8 @@ elseif RunService:IsClient() then
 	local Debug_UI = script:WaitForChild("Debug-UI"):Clone();
 	Debug_UI.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
+	local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+
 	local ServerInfoRemote:RemoteFunction = InfoRemoteParent:WaitForChild(InfoRemoteName);
 	local serverLocation = ServerInfoRemote:InvokeServer("r");
 
@@ -46,6 +48,7 @@ elseif RunService:IsClient() then
 			Debug_UI.Ping.Text = ("%s MS"):format(tostring((math.floor(((os.clock() - ping) * 1000) * 100) / 100)));
 			Debug_UI.Fps.Text = ("%s FPS"):format(tostring(math.floor(workspace:GetRealPhysicsFPS() * 100) / 100))
 			Debug_UI.Mem.Text = ("%s MEM (MB)"):format(StatService:GetTotalMemoryUsageMb());
+			Debug_UI.Res.Text = ("X: %s Y: %s"):format(Mouse.ViewSizeX, Mouse.ViewSizeY)
 			task.wait(1);
 		end
 	end)
